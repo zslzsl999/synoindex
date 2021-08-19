@@ -43,5 +43,3 @@ do
 	fi
 	sleep 3m
 done
-
-#for i in $name; do echo $i; done
