@@ -1,0 +1,2 @@
+# synoindex
+解决群晖transmission下载pt种子后nas不自动索引，总是需要手动全部索引
