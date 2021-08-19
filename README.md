@@ -1,5 +1,6 @@
 # synoindex
 解决群晖transmission下载pt种子后nas不自动索引，总是需要手动全部索引
+
 拷贝到nas的文件可以自动索引上，但下载的确不行，真的挺闹心
 前提：
 1.transmission默认的下载目录是volume1/movie
