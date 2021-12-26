@@ -3,7 +3,7 @@
 while true
 do
 	# index dir
-	ls -l /volume1/movie |awk '/^d/ {print $NF}' > /volume1/movie/dir.tmp.txt
+	find . -maxdepth 1 -type d | awk -F / '{print $NF}' > /volume1/movie/dir.tmp.txt
 	dir_now=$(awk 'END{print NR}' /volume1/movie/dir.tmp.txt)
 	dir_last=$(awk 'END{print NR}' /volume1/movie/dir.txt)
 	if [ $dir_now -ne $dir_last ];then
@@ -29,6 +29,8 @@ do
 	if [ $now -ne $last ];then
 		cat name.tmp.txt | while read line
 		do
+			#echo $line | grep " "
+			#grep -q "\[" "${line}"
 			echo $line | grep -q "\["
 			if [ $? -eq 0 ];then
 				line=$(echo $line | sed 's/\]/\\\]/g' | sed 's/\[/\\\[/g')
@@ -43,3 +45,5 @@ do
 	fi
 	sleep 3m
 done
+
+#for i in $name; do echo $i; done
